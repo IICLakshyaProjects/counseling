@@ -3,10 +3,10 @@ import FaqAccordion from './FaqAccordion'
 import Image from 'next/image'
 
 const achievements = [
-  { value: '400+', label: 'Global &\nNational Ranks' },
+  { value: '450+', label: 'Global &\nNational Ranks' },
   { value: '700+', label: 'Faculty &\nProgramme Experts' },
   { value: '100%', label: 'Placement Assistance' },
-  { value: '165,000+', label: 'Lakshya Learners' },
+  { value: '185,000+', label: 'Lakshya Learners' },
 ]
 
 const counsellingFor = [
@@ -35,9 +35,9 @@ const sessionOverview = [
   {
     icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__1_session-2.webp',
     label: 'Mode',
-    value: 'Online',
+    value: 'Offline at IIC Lakshya center or\nOnline via video call',
     highlight: true,
-    sub: '(conducted via Zoom or Google Meet)',
+    sub: '',
   },
   {
     icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__2_session-3.webp',
@@ -51,13 +51,6 @@ const sessionOverview = [
     value: 'Completely FREE',
     highlight: true,
     sub: '(No registration or consultation charges)',
-  },
-  {
-    icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__4_session-5.webp',
-    label: 'Session Language',
-    value: 'English or\nRegional Language',
-    highlight: true,
-    sub: 'as per your preference',
   },
 ]
 
