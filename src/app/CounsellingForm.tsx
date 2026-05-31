@@ -4,7 +4,10 @@ import { useActionState } from 'react'
 import { submitCounsellingForm } from './actions'
 
 const inputClass =
-  'w-full border border-gray-300 rounded-md px-4 py-3 text-sm text-gray-600 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-400'
+  'w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-base text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm'
+
+const selectClass =
+  'w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-base text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm [&>option:not([disabled])]:text-gray-800'
 
 export default function CounsellingForm() {
   const [state, action, pending] = useActionState(submitCounsellingForm, null)
@@ -22,7 +25,7 @@ export default function CounsellingForm() {
   }
 
   return (
-    <form action={action} className="flex flex-col gap-3">
+    <form action={action} className="flex flex-col gap-4">
       <input
         type="text"
         name="full_name"
@@ -44,17 +47,24 @@ export default function CounsellingForm() {
         required
         className={inputClass}
       />
-      <select name="qualification" required className={inputClass + ' bg-white'} defaultValue="">
-        <option value="" disabled>
-          Qualification
-        </option>
-        <option value="Class 10">Class 10</option>
-        <option value="Class 11">Class 11</option>
-        <option value="Class 12">Class 12</option>
-        <option value="Graduate">Graduate</option>
-        <option value="Post Graduate">Post Graduate</option>
-        <option value="Working Professional">Working Professional</option>
-        <option value="Other">Other</option>
+      <select name="location" required className={selectClass} defaultValue="">
+        <option value="" disabled>Location:</option>
+        <option value="Kannur">Kannur</option>
+        <option value="Kozhikode(calicut)">Kozhikode(calicut)</option>
+        <option value="Thrissur">Thrissur</option>
+        <option value="Perinthalmanna">Perinthalmanna</option>
+        <option value="Kochi">Kochi</option>
+        <option value="Kottayam">Kottayam</option>
+        <option value="Trivandrum">Trivandrum</option>
+      </select>
+      <select name="qualification" required className={selectClass} defaultValue="">
+        <option value="" disabled>Qualification</option>
+        <option value="Class 11 Student">Class 11 Student</option>
+        <option value="Class 12 Student">Class 12 Student</option>
+        <option value="Graduate & Above - No Experience">Graduate & Above - No Experience</option>
+        <option value="0-1 Yr">0-1 Yr</option>
+        <option value="2-5 Yrs">2-5 Yrs</option>
+        <option value="5+ Yrs">5+ Yrs</option>
       </select>
       {state?.error && (
         <p className="text-red-500 text-xs">{state.error}</p>
@@ -62,7 +72,7 @@ export default function CounsellingForm() {
       <button
         type="submit"
         disabled={pending}
-        className="mt-2 w-full bg-[#f5c518] hover:bg-[#e6b800] text-black font-bold py-4 rounded-full text-sm transition-colors disabled:opacity-60"
+        className="mt-1 w-full bg-[#f5c518] hover:bg-[#e6b800] text-black font-bold py-5 rounded-full text-base transition-colors disabled:opacity-60 shadow-sm"
       >
         {pending ? 'Submitting...' : 'Book My Free 1:1 Counselling Session'}
       </button>

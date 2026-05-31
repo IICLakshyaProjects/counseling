@@ -11,6 +11,7 @@ async function ensureTable() {
       full_name VARCHAR(255) NOT NULL,
       mobile VARCHAR(20) NOT NULL,
       email VARCHAR(255) NOT NULL,
+      location VARCHAR(255),
       qualification VARCHAR(100) NOT NULL,
       created_at TIMESTAMPTZ DEFAULT NOW()
     )
@@ -24,17 +25,18 @@ export async function submitCounsellingForm(
   const full_name = (formData.get('full_name') as string)?.trim()
   const mobile = (formData.get('mobile') as string)?.trim()
   const email = (formData.get('email') as string)?.trim()
+  const location = (formData.get('location') as string)?.trim()
   const qualification = (formData.get('qualification') as string)?.trim()
 
-  if (!full_name || !mobile || !email || !qualification) {
+  if (!full_name || !mobile || !email || !location || !qualification) {
     return { success: false, error: 'All fields are required.' }
   }
 
   try {
     await ensureTable()
     await pool.query(
-      'INSERT INTO counselling_leads (full_name, mobile, email, qualification) VALUES ($1, $2, $3, $4)',
-      [full_name, mobile, email, qualification]
+      'INSERT INTO counselling_leads (full_name, mobile, email, location, qualification) VALUES ($1, $2, $3, $4, $5)',
+      [full_name, mobile, email, location, qualification]
     )
     return { success: true, error: '' }
   } catch (err) {

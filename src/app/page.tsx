@@ -89,51 +89,83 @@ const footerResources = ['Blogs', 'Academics', 'Commerce Formulas', 'Master Clas
 export default function Home() {
   return (
     <div className="font-sans text-[#1a3c6e] bg-white">
-      {/* ── HERO ── */}
-      <section
-        className="relative min-h-[340px] flex flex-col justify-center px-6 py-10"
-        style={{
-          background: 'linear-gradient(135deg, #0d7a6e 0%, #1a8c5a 30%, #5aaa6e 60%, #a8d8b0 100%)',
-        }}
-      >
-        <div className="max-w-xl">
-          <p className="text-white text-xl font-normal mb-1">Book your</p>
-          <h1 className="text-white text-4xl font-extrabold leading-tight">
-            <span className="text-[#f5c518]">Free 1:1</span> Career
-            <br />
-            Counselling Session
-          </h1>
-          <p className="text-white text-xs mt-4 max-w-xs leading-5">
-            Confused about your next step in commerce? Whether you&apos;re in school, just graduated, or exploring a career shift, get expert guidance from{' '}
-            <span className="font-bold">India&apos;s No.1 Commerce Institute.</span>
-          </p>
+      {/* ── LOGO + HERO — fills viewport height ── */}
+      <div className="flex flex-col" style={{ height: '85vh' }}>
+        {/* Logo bar */}
+        <div className="flex justify-center py-2 bg-white flex-shrink-0">
+          <Image
+            src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/Lg.webp"
+            alt="IIC Lakshya Logo"
+            width={220}
+            height={55}
+            priority
+          />
         </div>
-      </section>
+
+        {/* Hero — takes remaining viewport height */}
+        <section
+          className="relative overflow-hidden flex flex-1 items-center justify-center"
+          style={{
+            background: 'linear-gradient(135deg, #0d5c6e 0%, #0d7a6e 25%, #2a9a6e 55%, #7ac56e 80%, #a8d870 100%)',
+          }}
+        >
+          <div className="flex items-center justify-center w-full max-w-5xl px-10 gap-6 h-full">
+            {/* Text */}
+            <div className="flex-1 flex flex-col justify-center">
+              <p className="text-white text-2xl font-normal mb-1">Book your</p>
+              <h1 className="text-white font-normal leading-tight text-5xl">
+                <span className="text-[#f5c518] font-extrabold">Free 1:1</span> Career
+                <br />
+                Counselling Session
+              </h1>
+              <p className="text-white text-base mt-5 leading-5 max-w-sm">
+                Confused about your next step in commerce?<br />
+                Whether you&apos;re in school, just graduated, or<br />
+                exploring a career shift, get expert guidance<br />
+                from <span className="text-[#f5c518] font-bold">India&apos;s No.1</span> Commerce Institute.
+              </p>
+            </div>
+
+            {/* Hero image */}
+            <div className="flex-1 flex items-end justify-center h-full">
+              <Image
+                src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cbanner_oline-header-img.webp"
+                alt="Career Counselling Experts"
+                width={700}
+                height={440}
+                className="object-contain object-bottom"
+                style={{ width: 'auto', height: '85%', maxHeight: '420px' }}
+                priority
+              />
+            </div>
+          </div>
+        </section>
+      </div>
 
       {/* ── ACHIEVEMENTS ── */}
-      <section className="py-10 px-6">
-        <h2 className="text-center text-2xl font-bold text-[#1a3c6e] mb-8">Our Achievements</h2>
-        <div className="grid grid-cols-2 gap-6 max-w-lg mx-auto text-center">
+      <section className="py-14 px-6">
+        <h2 className="text-center text-3xl font-normal text-[#1a3c6e] mb-10">Our Achievements</h2>
+        <div className="grid grid-cols-2 gap-16 max-w-2xl mx-auto text-center">
           {achievements.map((a) => (
             <div key={a.value}>
-              <p className="text-4xl font-extrabold text-[#1a3c6e]">{a.value}</p>
-              <p className="text-[#3a8fe8] text-xs mt-1 leading-5 whitespace-pre-line">{a.label}</p>
+              <p className="text-7xl font-extrabold text-[#1a3c6e]">{a.value}</p>
+              <p className="text-[#3a8fe8] text-lg mt-3 leading-6 whitespace-pre-line">{a.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── FORM ── */}
-      <section id="form-section" className="bg-[#eaf4fd] py-10 px-6">
-        <h2 className="text-center text-2xl font-bold text-[#1a3c6e] mb-6">Talk with Industry Experts</h2>
-        <div className="max-w-md mx-auto bg-white rounded-xl shadow-sm p-6">
+      <section id="form-section" className="bg-[#eaf4fd] py-10 px-10">
+        <h2 className="text-center text-4xl font-normal text-[#1a3c6e] mb-6">Talk with Industry Experts</h2>
+        <div className="max-w-2xl mx-auto">
           <CounsellingForm />
         </div>
       </section>
 
       {/* ── WHO IS THIS FOR ── */}
       <section className="py-12 px-6">
-        <h2 className="text-center text-2xl font-bold text-[#1a3c6e] mb-2">
+        <h2 className="text-center text-4xl font-bold text-[#3a8fe8] mb-2">
           Who is this<br />Counselling for?
         </h2>
         <div className="max-w-lg mx-auto mt-6 bg-gray-100 rounded-xl p-6">
