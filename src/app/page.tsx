@@ -149,7 +149,7 @@ export default function Home() {
             {/* Hero image */}
             <div className="flex-1 flex items-end justify-center h-full">
               <Image
-                src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cbanner_oline-header-img.webp"
+                src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/1754805830979_cbanner_oline-header-img.webp"
                 alt="Career Counselling Experts"
                 width={700}
                 height={440}
