@@ -35,7 +35,7 @@ const sessionOverview = [
   {
     icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__1_session-2.webp',
     label: 'Mode',
-    value: 'Offline at IIC Lakshya center or\nOnline via video call',
+    value: 'Offline at IIC Lakshya center /\nOnline via video call',
     highlight: true,
     sub: '',
   },
@@ -59,21 +59,6 @@ const steps = [
   { num: 2, text: 'Get a Callback to schedule\nyour Free Online Session\nas per your convenience' },
   { num: 3, text: 'Attend the 1:1\nOnline Session with\na Career Specialist' },
   { num: 4, text: 'Start your\njourney with clarity' },
-]
-
-const faqs = [
-  {
-    q: 'Is the counselling session really free?',
-    a: 'Yes, absolutely! The 1:1 career counselling session is completely free of cost. There are no hidden charges or registration fees.',
-  },
-  {
-    q: 'Who will I talk to?',
-    a: 'You will speak directly with a qualified Career Specialist from Lakshya who has deep expertise in commerce and related career paths.',
-  },
-  {
-    q: "What if I'm not ready to choose a course yet?",
-    a: "That's perfectly fine! The session is designed to help you explore your options and gain clarity — you don't need to have already made a decision.",
-  },
 ]
 
 const footerAbout = [
@@ -109,8 +94,9 @@ const footerResources = [
 export default function Home() {
   return (
     <div className="font-sans text-[#1a3c6e] bg-white">
-      {/* ── LOGO + HERO — fills viewport height ── */}
-      <div className="flex flex-col" style={{ height: '85vh' }}>
+
+      {/* ── LOGO + HERO ── */}
+      <div className="flex flex-col lg:h-[85vh]">
         {/* Logo bar */}
         <div className="flex justify-center py-2 bg-white flex-shrink-0">
           <Image
@@ -122,23 +108,23 @@ export default function Home() {
           />
         </div>
 
-        {/* Hero — takes remaining viewport height */}
+        {/* Hero */}
         <section
           className="relative overflow-hidden flex flex-1 items-center justify-center"
           style={{
             background: 'linear-gradient(135deg, #0d5c6e 0%, #0d7a6e 25%, #2a9a6e 55%, #7ac56e 80%, #a8d870 100%)',
           }}
         >
-          <div className="flex items-center justify-center w-full max-w-5xl px-10 gap-6 h-full">
+          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-5xl px-6 lg:px-10 gap-4 lg:gap-6 pt-8 pb-0 lg:py-0 lg:h-full">
             {/* Text */}
-            <div className="flex-1 flex flex-col justify-center">
-              <p className="text-white text-2xl font-normal mb-1">Book your</p>
-              <h1 className="text-white font-normal leading-tight text-5xl">
+            <div className="flex-1 flex flex-col justify-center text-center lg:text-left">
+              <p className="text-white text-base lg:text-2xl font-normal mb-1">Book your</p>
+              <h1 className="text-white font-normal leading-tight text-2xl lg:text-5xl">
                 <span className="text-[#f5c518] font-extrabold">Free 1:1</span> Career
                 <br />
                 Counselling Session
               </h1>
-              <p className="text-white text-base mt-5 leading-5 max-w-sm">
+              <p className="text-white text-sm lg:text-base mt-3 lg:mt-5 leading-6 lg:leading-5 max-w-xs mx-auto lg:mx-0 lg:max-w-sm">
                 Confused about your next step in commerce?<br />
                 Whether you&apos;re in school, just graduated, or<br />
                 exploring a career shift, get expert guidance<br />
@@ -147,14 +133,14 @@ export default function Home() {
             </div>
 
             {/* Hero image */}
-            <div className="flex-1 flex items-end justify-center h-full">
+            <div className="flex-1 flex items-end justify-center h-full self-end">
               <Image
                 src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/1754805830979_cbanner_oline-header-img.webp"
                 alt="Career Counselling Experts"
                 width={700}
                 height={440}
-                className="object-contain object-bottom"
-                style={{ width: 'auto', height: '85%', maxHeight: '420px' }}
+                className="object-contain object-bottom w-full max-w-[220px] lg:max-w-none mb-0 block"
+                style={{ width: 'auto', height: '85%', maxHeight: '420px', verticalAlign: 'bottom' }}
                 priority
               />
             </div>
@@ -163,33 +149,33 @@ export default function Home() {
       </div>
 
       {/* ── ACHIEVEMENTS ── */}
-      <section className="py-14 px-6">
-        <h2 className="text-center text-3xl font-normal text-[#1a3c6e] mb-10">Our Achievements</h2>
-        <div className="grid grid-cols-2 gap-16 max-w-2xl mx-auto text-center">
+      <section className="py-10 lg:py-14 px-4 lg:px-6">
+        <h2 className="text-center text-2xl lg:text-3xl font-normal text-[#1a3c6e] mb-6 lg:mb-10">Our Achievements</h2>
+        <div className="grid grid-cols-2 gap-8 lg:gap-16 max-w-xs lg:max-w-2xl mx-auto text-center">
           {achievements.map((a) => (
             <div key={a.value}>
-              <p className="text-7xl font-extrabold text-[#1a3c6e]">{a.value}</p>
-              <p className="text-[#3a8fe8] text-lg mt-3 leading-6 whitespace-pre-line">{a.label}</p>
+              <p className="text-4xl lg:text-7xl font-extrabold text-[#1a3c6e]">{a.value}</p>
+              <p className="text-[#3a8fe8] text-sm lg:text-lg mt-2 lg:mt-3 leading-5 lg:leading-6 whitespace-pre-line">{a.label}</p>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── FORM ── */}
-      <section id="form-section" className="bg-[#eaf4fd] py-10 px-10">
-        <h2 className="text-center text-4xl font-normal text-[#1a3c6e] mb-6">Talk with Industry Experts</h2>
+      <section id="form-section" className="bg-[#eaf4fd] py-8 lg:py-10 px-4 lg:px-10">
+        <h2 className="text-center text-2xl lg:text-4xl font-normal text-[#1a3c6e] mb-5 lg:mb-6">Talk with Industry Experts</h2>
         <div className="max-w-2xl mx-auto">
           <CounsellingForm />
         </div>
       </section>
 
       {/* ── WHO IS THIS FOR ── */}
-      <section className="py-12 px-6">
-        <h2 className="text-center text-5xl font-bold text-[#3a8fe8] mb-2">
+      <section className="py-10 lg:py-12 px-4 lg:px-6">
+        <h2 className="text-center text-3xl lg:text-5xl font-bold text-[#3a8fe8] mb-2">
           Who is this<br />Counselling for?
         </h2>
-        <div className="w-full mt-6 bg-gray-100 rounded-xl px-24 py-10">
-          <ul className="space-y-6 list-disc text-xl text-[#1a3c6e] leading-8 max-w-2xl mx-auto pl-6">
+        <div className="w-full mt-6 bg-gray-100 rounded-xl px-4 py-6 lg:px-24 lg:py-10">
+          <ul className="space-y-4 lg:space-y-6 list-disc text-base lg:text-xl text-[#1a3c6e] leading-7 lg:leading-8 max-w-2xl mx-auto pl-6">
             {counsellingFor.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -198,15 +184,15 @@ export default function Home() {
       </section>
 
       {/* ── WHAT WILL YOU GET ── */}
-      <section className="py-12 px-6 bg-white">
-        <h2 className="text-center text-5xl font-bold text-[#3a8fe8] mb-2">
+      <section className="py-10 lg:py-12 px-4 lg:px-6 bg-white">
+        <h2 className="text-center text-3xl lg:text-5xl font-bold text-[#3a8fe8] mb-2">
           What will you get<br />in the counselling?
         </h2>
-        <div className="w-full mt-6 bg-gray-100 rounded-xl px-24 py-10">
-          <ul className="space-y-8 text-2xl text-gray-800 leading-8 max-w-2xl mx-auto pl-0">
+        <div className="w-full mt-6 bg-gray-100 rounded-xl px-4 py-6 lg:px-24 lg:py-10">
+          <ul className="space-y-5 lg:space-y-8 text-base lg:text-2xl text-gray-800 leading-7 lg:leading-8 max-w-2xl mx-auto pl-0">
           {whatYouGet.map((item, i) => (
-            <li key={i} className="flex gap-4 items-start">
-              <span className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[#3a8fe8] flex items-center justify-center text-[#3a8fe8] text-base mt-0.5">✓</span>
+            <li key={i} className="flex gap-3 lg:gap-4 items-start">
+              <span className="flex-shrink-0 w-6 h-6 lg:w-7 lg:h-7 rounded-full border-2 border-[#3a8fe8] flex items-center justify-center text-[#3a8fe8] text-sm lg:text-base mt-0.5">✓</span>
               <span>{item}</span>
             </li>
           ))}
@@ -215,33 +201,33 @@ export default function Home() {
       </section>
 
       {/* ── SESSION OVERVIEW ── */}
-      <section className="bg-[#005486] py-12 px-6 text-white">
-        <h2 className="text-center text-5xl font-bold mb-8">Session Overview</h2>
-        <div className="max-w-sm mx-auto space-y-6">
+      <section className="bg-[#005486] py-10 lg:py-12 px-4 lg:px-6 text-white">
+        <h2 className="text-center text-3xl lg:text-5xl font-bold mb-6 lg:mb-8">Session Overview</h2>
+        <div className="max-w-sm mx-auto space-y-5 lg:space-y-6">
           {sessionOverview.map((item, i) => (
-            <div key={i} className="flex items-center gap-6">
-              <div className="w-28 h-28 rounded-full bg-[#003d63] flex items-center justify-center flex-shrink-0 overflow-hidden p-4">
+            <div key={i} className="flex items-center gap-4 lg:gap-6">
+              <div className="w-16 h-16 lg:w-28 lg:h-28 rounded-full bg-[#003d63] flex items-center justify-center flex-shrink-0 overflow-hidden p-2 lg:p-4">
                 <Image src={item.icon} alt={item.label} width={90} height={90} className="object-contain w-full h-full" />
               </div>
               <div>
-                <p className="text-lg italic text-white font-normal">{item.label}</p>
-                <p className={`font-bold text-2xl whitespace-pre-line leading-tight ${item.highlight ? 'text-[#f5c518]' : 'text-white'}`}>
+                <p className="text-sm lg:text-lg italic text-white font-normal">{item.label}</p>
+                <p className={`font-bold text-base lg:text-2xl whitespace-pre-line leading-tight ${item.highlight ? 'text-[#f5c518]' : 'text-white'}`}>
                   {item.value}
                 </p>
-                {item.sub && <p className="text-2xl text-white font-normal whitespace-nowrap">{item.sub}</p>}
+                {item.sub && <p className="text-sm lg:text-2xl text-white font-normal lg:whitespace-nowrap">{item.sub}</p>}
               </div>
             </div>
           ))}
         </div>
 
         {/* 10 Lakh+ banner */}
-        <div className="max-w-4xl mx-auto mt-12 border border-[#c8b84a] rounded-2xl px-16 py-8 flex items-center justify-center gap-6"
+        <div className="max-w-4xl mx-auto mt-10 lg:mt-12 border border-[#c8b84a] rounded-2xl px-6 lg:px-16 py-6 lg:py-8 flex flex-col lg:flex-row items-center justify-center gap-3 lg:gap-6"
           style={{ background: 'rgba(0,30,60,0.5)' }}>
           <div className="flex items-baseline gap-2">
-            <span className="font-extrabold text-8xl" style={{ color: '#3ab8c8' }}>10</span>
-            <span className="font-extrabold text-8xl" style={{ background: 'linear-gradient(180deg, #5ec87a 0%, #b8d84a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Lakh+</span>
+            <span className="font-extrabold text-5xl lg:text-8xl" style={{ color: '#3ab8c8' }}>10</span>
+            <span className="font-extrabold text-5xl lg:text-8xl" style={{ background: 'linear-gradient(180deg, #5ec87a 0%, #b8d84a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Lakh+</span>
           </div>
-          <div className="flex flex-col text-white text-3xl font-normal leading-10">
+          <div className="flex flex-col text-white text-lg lg:text-3xl font-normal leading-7 lg:leading-10 text-center lg:text-left">
             <span>Students Counselled</span>
             <span>Since 2011</span>
           </div>
@@ -249,21 +235,21 @@ export default function Home() {
       </section>
 
       {/* ── 4-STEP JOURNEY ── */}
-      <section className="py-12 px-6 bg-[#005486]">
-        <h2 className="text-center text-6xl font-bold text-white mb-8">
+      <section className="py-10 lg:py-12 px-4 lg:px-6 bg-[#005486]">
+        <h2 className="text-center text-3xl lg:text-6xl font-bold text-white mb-6 lg:mb-8">
           Your 4-Step Journey<br />to Career Clarity
         </h2>
-        <div className="max-w-3xl mx-auto grid grid-cols-2 gap-6 mt-6 items-start">
+        <div className="max-w-3xl mx-auto grid grid-cols-2 gap-4 lg:gap-6 mt-4 lg:mt-6 items-start">
           {steps.map((s) => (
             <div key={s.num} className="relative pt-5">
-              <div className="w-9 h-9 rounded-full bg-[#003d63] text-white text-sm font-bold flex items-center justify-center mx-auto absolute -top-0 left-1/2 -translate-x-1/2 z-10">
+              <div className="w-8 h-8 lg:w-9 lg:h-9 rounded-full bg-[#003d63] text-white text-xs lg:text-sm font-bold flex items-center justify-center mx-auto absolute -top-0 left-1/2 -translate-x-1/2 z-10">
                 {s.num}
               </div>
               <div
-                className="rounded-2xl pt-10 pb-6 px-6 text-center h-36 flex items-center justify-center"
+                className="rounded-2xl pt-8 pb-4 px-3 lg:pt-10 lg:pb-6 lg:px-6 text-center h-28 lg:h-36 flex items-center justify-center"
                 style={{ border: '1px dashed #7ab8d8' }}
               >
-                <p className="text-xl text-white leading-8 whitespace-pre-line">{s.text}</p>
+                <p className="text-sm lg:text-xl text-white leading-6 lg:leading-8 whitespace-pre-line">{s.text}</p>
               </div>
             </div>
           ))}
@@ -271,58 +257,103 @@ export default function Home() {
       </section>
 
       {/* ── FAQ ── */}
-      <section className="bg-[#005486] py-12 px-6 text-white">
-        <div className="max-w-3xl mx-auto rounded-2xl px-6 py-12 space-y-4" style={{ background: '#0A5A8A' }}>
-        <h2 className="text-center text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+      <section className="bg-[#005486] py-10 lg:py-12 px-4 lg:px-6 text-white">
+        <div className="max-w-3xl mx-auto rounded-2xl px-4 py-8 lg:px-6 lg:py-12 space-y-4" style={{ background: '#0A5A8A' }}>
+          <h2 className="text-center text-2xl lg:text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
           <FaqAccordion />
         </div>
       </section>
 
       {/* ── BOTTOM CTA ── */}
-      <section className="py-14 px-6 text-center bg-[#005486]">
-        <h2 className="text-6xl font-bold mb-6" style={{ color: '#7ab8d8' }}>
+      <section className="py-10 lg:py-14 px-4 lg:px-6 text-center bg-[#005486]">
+        <h2 className="text-3xl lg:text-6xl font-bold mb-4 lg:mb-6" style={{ color: '#7ab8d8' }}>
           Let&apos;s Talk About Your<br />Future One-on-One
         </h2>
-        <p className="text-white text-2xl italic mb-6 leading-9">
+        <p className="text-white text-base lg:text-2xl italic mb-5 lg:mb-6 leading-7 lg:leading-9">
           Book your free counselling session and take the<br />first step toward a career in commerce.
         </p>
         <a
           href="#form-section"
-          className="inline-block bg-[#f5c518] hover:bg-[#e6b800] text-black font-bold py-5 px-16 rounded-full text-xl transition-colors"
+          className="inline-block bg-[#f5c518] hover:bg-[#e6b800] text-black font-bold py-4 lg:py-5 px-8 lg:px-16 rounded-full text-base lg:text-xl transition-colors"
         >
           Book your FREE 1:1 Session Now
         </a>
       </section>
 
       {/* ── STAY CONNECTED ── */}
-      <section className="py-10 px-6 text-center bg-[#005486]">
-        <p className="text-white font-normal text-4xl mb-2">Stay Connected</p>
-        <p className="text-gray-200 text-2xl mb-4">Follow us on</p>
-        <div className="flex justify-center gap-10">
+      <section className="py-8 lg:py-10 px-4 lg:px-6 text-center bg-[#005486]">
+        <p className="text-white font-normal text-2xl lg:text-4xl mb-1 lg:mb-2">Stay Connected</p>
+        <p className="text-gray-200 text-lg lg:text-2xl mb-4">Follow us on</p>
+        <div className="flex justify-center gap-6 lg:gap-10">
           {[
             { href: 'https://wa.me/919061277777', label: 'WhatsApp', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cr1_whats-app.png' },
             { href: 'https://www.facebook.com/lakshyacac', label: 'Facebook', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/_cr2_facebook.png' },
             { href: 'https://www.instagram.com/iiclakshya/', label: 'Instagram', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cr3_instragram.png' },
             { href: 'https://www.linkedin.com/company/indianinstituteofcommercelakshya/', label: 'LinkedIn', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cr4_linkedines.png' },
           ].map((s) => (
-            <a
-              key={s.label}
-              href={s.href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={s.label}
-            >
-              <Image src={s.img} alt={s.label} width={110} height={110} className="object-contain hover:scale-110 transition-transform duration-200" />
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label}>
+              <Image src={s.img} alt={s.label} width={70} height={70} className="object-contain hover:scale-110 transition-transform duration-200 lg:w-[110px] lg:h-[110px]" />
             </a>
           ))}
         </div>
-        <p className="text-gray-200 text-2xl mt-6">Warm Regards IIC Lakshya</p>
+        <p className="text-gray-200 text-lg lg:text-2xl mt-4 lg:mt-6">Warm Regards IIC Lakshya</p>
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#01508C] text-white pt-12 pb-8 px-20">
-        {/* 5-column layout: logo | about | courses | resource | contact */}
-        <div className="grid grid-cols-[220px_60px_1fr_1fr_1fr_1.6fr] gap-8 text-sm mb-8">
+      <footer className="bg-[#01508C] text-white pt-8 lg:pt-12 pb-6 lg:pb-8 px-6 lg:px-20">
+        {/* Logo */}
+        <div className="flex items-start pt-1 mb-6 lg:hidden">
+          <Image
+            src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/IIC_Lakshya_16yr.webp"
+            alt="IIC Lakshya"
+            width={160}
+            height={60}
+            className="object-contain brightness-0 invert"
+          />
+        </div>
+
+        {/* Mobile: 2-col nav grid | Desktop: hidden (rendered below) */}
+        <div className="grid grid-cols-2 gap-6 text-sm mb-6 lg:hidden">
+          <div>
+            <p className="text-[#f5c518] font-semibold mb-3">About Lakshya</p>
+            {footerAbout.map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="block text-white mb-2 hover:text-gray-300">{l.label}</a>
+            ))}
+          </div>
+          <div>
+            <p className="text-[#f5c518] font-semibold mb-3">Courses</p>
+            {footerCourses.map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="block text-white mb-2 hover:text-gray-300">{l.label}</a>
+            ))}
+          </div>
+          <div>
+            <p className="text-[#f5c518] font-semibold mb-3">Resource</p>
+            {footerResources.map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="block text-white mb-2 hover:text-gray-300">{l.label}</a>
+            ))}
+          </div>
+          <div className="text-sm space-y-4">
+            <div className="flex gap-2">
+              <span className="mt-0.5 flex-shrink-0">📍</span>
+              <p className="text-white leading-6 text-xs">Coimbatore | Chennai | Kochi | Kozhikode | Perinthalmanna | Bengaluru | Thrissur | Trivandrum | Kottayam | Kannur | Dubai*</p>
+            </div>
+            <div className="flex gap-2">
+              <span className="mt-0.5 flex-shrink-0">📞</span>
+              <div>
+                <p className="text-white font-semibold text-xs">🇮🇳 +91 90612 77777</p>
+                <p className="text-white font-semibold text-xs">🇦🇪 +971 568631499</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <span className="mt-0.5 flex-shrink-0">✉️</span>
+              <p className="text-white font-semibold text-xs">info@iiclakshya.com</p>
+            </div>
+            <a href="https://lakshyacommerce.com/privacy-policy-and-terms-of-service" target="_blank" rel="noopener noreferrer" className="text-white text-xs hover:text-gray-300">T&amp;C and Privacy Policy</a>
+          </div>
+        </div>
+
+        {/* Desktop: 5-column */}
+        <div className="hidden lg:grid grid-cols-[220px_60px_1fr_1fr_1fr_1.6fr] gap-8 text-sm mb-8">
           {/* Logo */}
           <div className="flex items-start pt-1">
             <Image
@@ -390,8 +421,8 @@ export default function Home() {
           </div>
         </div>
 
-        {/* Bottom social icons row */}
-        <div className="flex items-center gap-5 mb-6 mt-2">
+        {/* Bottom social icons */}
+        <div className="flex items-center gap-4 lg:gap-5 mb-4 lg:mb-6 mt-2 flex-wrap">
           {[
             { href: 'https://x.com/iiclakshya', label: 'X', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
             { href: 'https://www.youtube.com/@iic_lakshya', label: 'YouTube', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> },
