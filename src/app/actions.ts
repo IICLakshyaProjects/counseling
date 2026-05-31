@@ -28,7 +28,7 @@ export async function submitCounsellingForm(
   const location = (formData.get('location') as string)?.trim()
   const qualification = (formData.get('qualification') as string)?.trim()
 
-  if (!full_name || !mobile || !email || !location || !qualification) {
+  if (!full_name || !mobile || !location || !qualification) {
     return { success: false, error: 'All fields are required.' }
   }
 

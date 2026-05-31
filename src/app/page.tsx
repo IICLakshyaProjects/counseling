@@ -1,4 +1,5 @@
 import CounsellingForm from './CounsellingForm'
+import FaqAccordion from './FaqAccordion'
 import Image from 'next/image'
 
 const achievements = [
@@ -25,34 +26,34 @@ const whatYouGet = [
 
 const sessionOverview = [
   {
-    icon: '👥',
+    icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/_c_se__0_session-1.webp',
     label: 'Session Type',
     value: 'Personalised 1:1\nCounselling Session',
     highlight: true,
     sub: '(private, not group-based)',
   },
   {
-    icon: '💻',
+    icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__1_session-2.webp',
     label: 'Mode',
     value: 'Online',
     highlight: true,
     sub: '(conducted via Zoom or Google Meet)',
   },
   {
-    icon: '🕐',
+    icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__2_session-3.webp',
     label: 'Session Duration',
     value: '30 to 60 Minutes',
     highlight: false,
   },
   {
-    icon: '💰',
+    icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__3_session-4.webp',
     label: 'Cost',
     value: 'Completely FREE',
     highlight: true,
     sub: '(No registration or consultation charges)',
   },
   {
-    icon: '🌐',
+    icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/c_se__4_session-5.webp',
     label: 'Session Language',
     value: 'English or\nRegional Language',
     highlight: true,
@@ -82,9 +83,35 @@ const faqs = [
   },
 ]
 
-const footerAbout = ['Home', 'About Us', 'Contact Us', 'Our Centers', 'Hiring Partners', 'Inside Lakshya', 'Investor Relations', 'Lakshya UAE']
-const footerCourses = ['MBA+ACCA', 'CA', 'ACCA', 'CMA USA', 'Integrated ACCA', 'Integrated CMA USA Course', 'CMA India', 'CS', 'CPA', 'DipIFR']
-const footerResources = ['Blogs', 'Academics', 'Commerce Formulas', 'Master Class', 'Sitemap']
+const footerAbout = [
+  { label: 'Home', href: 'https://lakshyacommerce.com/' },
+  { label: 'About Us', href: 'https://lakshyacommerce.com/about-us' },
+  { label: 'Contact Us', href: 'https://lakshyacommerce.com/contact-us' },
+  { label: 'Our Centers', href: 'https://lakshyacommerce.com/campus' },
+  { label: 'Hiring Partners', href: 'https://lakshyacommerce.com/hiring-partners' },
+  { label: 'Inside Lakshya', href: 'https://lakshyacommerce.com/inside-lakshya-events' },
+  { label: 'Investor Relations', href: 'https://lakshyacommerce.com/' },
+  { label: 'Lakshya UAE', href: 'https://lakshyacommerce.ae/' },
+]
+const footerCourses = [
+  { label: 'MBA+ACCA', href: 'https://lakshyacommerce.com/course/mba-acca-integrated-course' },
+  { label: 'CA', href: 'https://lakshyacommerce.com/course/chartered-accountancy-ca-course' },
+  { label: 'ACCA', href: 'https://lakshyacommerce.com/course/acca-course' },
+  { label: 'CMA USA', href: 'https://lakshyacommerce.com/course/cma-usa-course' },
+  { label: 'Integrated ACCA Course', href: 'https://lakshyacommerce.com/course/acca-integrated-ug-pg-degree-course' },
+  { label: 'Integrated CMA USA Course', href: 'https://lakshyacommerce.com/course/cma-usa-integrated-ug-pg-degree-course' },
+  { label: 'CMA India', href: 'https://lakshyacommerce.com/course/cma-india-course' },
+  { label: 'CS', href: 'https://lakshyacommerce.com/course/company-secretary-cs-course' },
+  { label: 'CPA', href: 'https://lakshyacommerce.com/course/cpa-course' },
+  { label: 'DipIFR', href: 'https://lakshyacommerce.com/course/dip-ifrs-course' },
+]
+const footerResources = [
+  { label: 'Blogs', href: 'https://lakshyacommerce.com/blog' },
+  { label: 'Academics', href: 'https://lakshyacommerce.com/academics' },
+  { label: 'Commerce Formulas', href: 'https://lakshyacommerce.com/formulas' },
+  { label: 'Master Class', href: 'https://lakshyacommerce.com/master-class' },
+  { label: 'Sitemap', href: 'https://lakshyacommerce.com/sitemap.xml' },
+]
 
 export default function Home() {
   return (
@@ -165,11 +192,11 @@ export default function Home() {
 
       {/* ── WHO IS THIS FOR ── */}
       <section className="py-12 px-6">
-        <h2 className="text-center text-4xl font-bold text-[#3a8fe8] mb-2">
+        <h2 className="text-center text-5xl font-bold text-[#3a8fe8] mb-2">
           Who is this<br />Counselling for?
         </h2>
-        <div className="max-w-lg mx-auto mt-6 bg-gray-100 rounded-xl p-6">
-          <ul className="space-y-4 list-disc list-inside text-sm text-[#1a3c6e] leading-6">
+        <div className="w-full mt-6 bg-gray-100 rounded-xl px-24 py-10">
+          <ul className="space-y-6 list-disc text-xl text-[#1a3c6e] leading-8 max-w-2xl mx-auto pl-6">
             {counsellingFor.map((item, i) => (
               <li key={i}>{item}</li>
             ))}
@@ -178,112 +205,112 @@ export default function Home() {
       </section>
 
       {/* ── WHAT WILL YOU GET ── */}
-      <section className="py-10 px-6 bg-white">
-        <h2 className="text-center text-2xl font-bold text-[#1a3c6e] mb-2">
+      <section className="py-12 px-6 bg-white">
+        <h2 className="text-center text-5xl font-bold text-[#3a8fe8] mb-2">
           What will you get<br />in the counselling?
         </h2>
-        <div className="max-w-lg mx-auto mt-6 space-y-4">
+        <div className="w-full mt-6 bg-gray-100 rounded-xl px-24 py-10">
+          <ul className="space-y-8 text-2xl text-gray-800 leading-8 max-w-2xl mx-auto pl-0">
           {whatYouGet.map((item, i) => (
-            <div key={i} className="flex gap-3 text-sm text-[#1a3c6e] leading-6">
-              <span className="text-[#3a8fe8] mt-0.5 flex-shrink-0">✓</span>
+            <li key={i} className="flex gap-4 items-start">
+              <span className="flex-shrink-0 w-7 h-7 rounded-full border-2 border-[#3a8fe8] flex items-center justify-center text-[#3a8fe8] text-base mt-0.5">✓</span>
               <span>{item}</span>
-            </div>
+            </li>
           ))}
+          </ul>
         </div>
       </section>
 
       {/* ── SESSION OVERVIEW ── */}
-      <section className="bg-[#0d2b5e] py-12 px-6 text-white">
-        <h2 className="text-center text-2xl font-bold mb-8">Session Overview</h2>
-        <div className="max-w-lg mx-auto space-y-6">
+      <section className="bg-[#005486] py-12 px-6 text-white">
+        <h2 className="text-center text-5xl font-bold mb-8">Session Overview</h2>
+        <div className="max-w-sm mx-auto space-y-6">
           {sessionOverview.map((item, i) => (
-            <div key={i} className="flex items-start gap-4">
-              <div className="w-12 h-12 rounded-full bg-[#1a3c6e] flex items-center justify-center text-xl flex-shrink-0">
-                {item.icon}
+            <div key={i} className="flex items-center gap-6">
+              <div className="w-28 h-28 rounded-full bg-[#003d63] flex items-center justify-center flex-shrink-0 overflow-hidden p-4">
+                <Image src={item.icon} alt={item.label} width={90} height={90} className="object-contain w-full h-full" />
               </div>
               <div>
-                <p className="text-xs text-gray-300">{item.label}</p>
-                <p className={`font-bold text-sm whitespace-pre-line ${item.highlight ? 'text-[#f5c518]' : 'text-white'}`}>
+                <p className="text-lg italic text-white font-normal">{item.label}</p>
+                <p className={`font-bold text-2xl whitespace-pre-line leading-tight ${item.highlight ? 'text-[#f5c518]' : 'text-white'}`}>
                   {item.value}
                 </p>
-                {item.sub && <p className="text-xs text-gray-300">{item.sub}</p>}
+                {item.sub && <p className="text-2xl text-white font-normal whitespace-nowrap">{item.sub}</p>}
               </div>
             </div>
           ))}
         </div>
 
         {/* 10 Lakh+ banner */}
-        <div className="max-w-lg mx-auto mt-10 border-2 border-[#3a8fe8] rounded-xl px-6 py-5 text-center">
-          <p className="text-2xl font-extrabold">
-            <span className="text-[#3a8fe8]">10 Lakh+</span>{' '}
-            <span className="text-white font-normal text-base">Students Counselled</span>
-          </p>
-          <p className="text-white text-sm mt-1">Since 2011</p>
+        <div className="max-w-4xl mx-auto mt-12 border border-[#c8b84a] rounded-2xl px-16 py-8 flex items-center justify-center gap-6"
+          style={{ background: 'rgba(0,30,60,0.5)' }}>
+          <div className="flex items-baseline gap-2">
+            <span className="font-extrabold text-8xl" style={{ color: '#3ab8c8' }}>10</span>
+            <span className="font-extrabold text-8xl" style={{ background: 'linear-gradient(180deg, #5ec87a 0%, #b8d84a 100%)', WebkitBackgroundClip: 'text', WebkitTextFillColor: 'transparent' }}>Lakh+</span>
+          </div>
+          <div className="flex flex-col text-white text-3xl font-normal leading-10">
+            <span>Students Counselled</span>
+            <span>Since 2011</span>
+          </div>
         </div>
       </section>
 
       {/* ── 4-STEP JOURNEY ── */}
-      <section className="py-12 px-6 bg-white">
-        <h2 className="text-center text-2xl font-bold text-[#1a3c6e] mb-8">
+      <section className="py-12 px-6 bg-[#005486]">
+        <h2 className="text-center text-6xl font-bold text-white mb-8">
           Your 4-Step Journey<br />to Career Clarity
         </h2>
-        <div className="max-w-lg mx-auto grid grid-cols-2 gap-4">
+        <div className="max-w-3xl mx-auto grid grid-cols-2 gap-6 mt-6 items-start">
           {steps.map((s) => (
-            <div
-              key={s.num}
-              className="border-2 border-dashed border-[#3a8fe8] rounded-xl p-4 text-center"
-            >
-              <div className="w-7 h-7 rounded-full bg-[#3a8fe8] text-white text-xs font-bold flex items-center justify-center mx-auto mb-2">
+            <div key={s.num} className="relative pt-5">
+              <div className="w-9 h-9 rounded-full bg-[#003d63] text-white text-sm font-bold flex items-center justify-center mx-auto absolute -top-0 left-1/2 -translate-x-1/2 z-10">
                 {s.num}
               </div>
-              <p className="text-xs text-[#1a3c6e] leading-5 whitespace-pre-line">{s.text}</p>
+              <div
+                className="rounded-2xl pt-10 pb-6 px-6 text-center h-36 flex items-center justify-center"
+                style={{ border: '1px dashed #7ab8d8' }}
+              >
+                <p className="text-xl text-white leading-8 whitespace-pre-line">{s.text}</p>
+              </div>
             </div>
           ))}
         </div>
       </section>
 
       {/* ── FAQ ── */}
-      <section className="bg-[#0d2b5e] py-12 px-6 text-white">
-        <h2 className="text-center text-2xl font-bold mb-6">Frequently Asked Questions</h2>
-        <div className="max-w-lg mx-auto space-y-3">
-          {faqs.map((faq, i) => (
-            <details key={i} className="bg-[#1a3c6e] rounded-xl">
-              <summary className="px-5 py-4 text-sm font-medium cursor-pointer flex justify-between items-center list-none">
-                {faq.q}
-                <span className="text-lg ml-2">›</span>
-              </summary>
-              <p className="px-5 pb-4 text-xs text-gray-300 leading-6">{faq.a}</p>
-            </details>
-          ))}
+      <section className="bg-[#005486] py-12 px-6 text-white">
+        <div className="max-w-3xl mx-auto rounded-2xl px-6 py-12 space-y-4" style={{ background: '#0A5A8A' }}>
+        <h2 className="text-center text-4xl font-bold text-white mb-4">Frequently Asked Questions</h2>
+          <FaqAccordion />
         </div>
       </section>
 
       {/* ── BOTTOM CTA ── */}
-      <section className="py-14 px-6 text-center bg-white">
-        <h2 className="text-2xl font-bold text-[#1a3c6e] mb-3">
+      <section className="py-14 px-6 text-center bg-[#005486]">
+        <h2 className="text-6xl font-bold mb-6" style={{ color: '#7ab8d8' }}>
           Let&apos;s Talk About Your<br />Future One-on-One
         </h2>
-        <p className="text-gray-500 text-sm mb-6 leading-6">
+        <p className="text-white text-2xl italic mb-6 leading-9">
           Book your free counselling session and take the<br />first step toward a career in commerce.
         </p>
         <a
           href="#form-section"
-          className="inline-block bg-[#f5c518] hover:bg-[#e6b800] text-black font-bold py-4 px-10 rounded-full text-sm transition-colors"
+          className="inline-block bg-[#f5c518] hover:bg-[#e6b800] text-black font-bold py-5 px-16 rounded-full text-xl transition-colors"
         >
           Book your FREE 1:1 Session Now
         </a>
       </section>
 
       {/* ── STAY CONNECTED ── */}
-      <section className="py-10 px-6 text-center bg-white border-t border-gray-100">
-        <p className="text-[#1a3c6e] font-semibold mb-1">Stay Connected</p>
-        <p className="text-gray-500 text-sm mb-4">Follow us on</p>
-        <div className="flex justify-center gap-5">
+      <section className="py-10 px-6 text-center bg-[#005486]">
+        <p className="text-white font-normal text-4xl mb-2">Stay Connected</p>
+        <p className="text-gray-200 text-2xl mb-4">Follow us on</p>
+        <div className="flex justify-center gap-10">
           {[
-            { href: 'https://wa.me/', bg: '#25d366', label: 'WhatsApp', icon: '💬' },
-            { href: 'https://facebook.com/', bg: '#1877f2', label: 'Facebook', icon: 'f' },
-            { href: 'https://instagram.com/', bg: '#e1306c', label: 'Instagram', icon: '📷' },
-            { href: 'https://linkedin.com/', bg: '#0077b5', label: 'LinkedIn', icon: 'in' },
+            { href: 'https://wa.me/919061277777', label: 'WhatsApp', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cr1_whats-app.png' },
+            { href: 'https://www.facebook.com/lakshyacac', label: 'Facebook', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/_cr2_facebook.png' },
+            { href: 'https://www.instagram.com/iiclakshya/', label: 'Instagram', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cr3_instragram.png' },
+            { href: 'https://www.linkedin.com/company/indianinstituteofcommercelakshya/', label: 'LinkedIn', img: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/cr4_linkedines.png' },
           ].map((s) => (
             <a
               key={s.label}
@@ -291,53 +318,104 @@ export default function Home() {
               target="_blank"
               rel="noopener noreferrer"
               aria-label={s.label}
-              className="w-12 h-12 rounded-full flex items-center justify-center text-white text-lg font-bold"
-              style={{ background: s.bg }}
             >
-              {s.icon}
+              <Image src={s.img} alt={s.label} width={110} height={110} className="object-contain hover:scale-110 transition-transform duration-200" />
             </a>
           ))}
         </div>
-        <p className="text-gray-500 text-sm mt-6">Warm Regards IIC Lakshya</p>
+        <p className="text-gray-200 text-2xl mt-6">Warm Regards IIC Lakshya</p>
       </section>
 
       {/* ── FOOTER ── */}
-      <footer className="bg-[#0d2b5e] text-white pt-10 pb-6 px-6">
-        <div className="max-w-2xl mx-auto">
-          <div className="flex items-center gap-3 mb-6">
-            <div className="text-white font-bold text-sm">Indian Institute of Commerce</div>
-            <div className="text-[#f5c518] font-bold text-xs border border-[#f5c518] px-2 py-0.5 rounded">16+</div>
+      <footer className="bg-[#01508C] text-white pt-12 pb-8 px-20">
+        {/* 5-column layout: logo | about | courses | resource | contact */}
+        <div className="grid grid-cols-[220px_60px_1fr_1fr_1fr_1.6fr] gap-8 text-sm mb-8">
+          {/* Logo */}
+          <div className="flex items-start pt-1">
+            <Image
+              src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/IIC_Lakshya_16yr.webp"
+              alt="IIC Lakshya"
+              width={200}
+              height={80}
+              className="object-contain brightness-0 invert"
+            />
           </div>
-          <div className="grid grid-cols-3 gap-6 text-xs mb-8">
-            <div>
-              <p className="font-semibold mb-3 text-sm">About Lakshya</p>
-              {footerAbout.map((l) => (
-                <p key={l} className="text-gray-300 mb-1.5 hover:text-white cursor-pointer">{l}</p>
-              ))}
-            </div>
-            <div>
-              <p className="font-semibold mb-3 text-sm">Courses</p>
-              {footerCourses.map((l) => (
-                <p key={l} className="text-gray-300 mb-1.5 hover:text-white cursor-pointer">{l}</p>
-              ))}
-            </div>
-            <div>
-              <p className="font-semibold mb-3 text-sm">Resources</p>
-              {footerResources.map((l) => (
-                <p key={l} className="text-gray-300 mb-1.5 hover:text-white cursor-pointer">{l}</p>
-              ))}
-            </div>
+
+          {/* Spacer */}
+          <div />
+
+          {/* About */}
+          <div>
+            <p className="text-[#f5c518] font-semibold mb-4">About Lakshya</p>
+            {footerAbout.map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="block text-white mb-3 hover:text-gray-300">{l.label}</a>
+            ))}
           </div>
-          <div className="border-t border-[#1a3c6e] pt-6 text-xs text-gray-400 space-y-2">
-            <p>📍 Coimbatore | Chennai | Kochi | Kozhikode | Perinthalmanna | Bengaluru | Thrissur | Trivandrum | Kottayam | Kannur | Dubai*</p>
-            <p>🏢 D, D1, C & C1, 49/137, Ponnurunni, Vyttila, Ernakulam, Kerala 682019</p>
-            <p>📞 +91 1800 4122 4555 &nbsp; +971 3808314550</p>
-            <p>✉️ info@iiclakshya.com</p>
-            <p className="text-gray-500 mt-4">
-              Copyright © 2026 All rights reserved with Learnfluence Education Limited (Formerly known as Learnfluence Education Private Limited).
-              <br />*Managed and operated by a separate legal entity.
-            </p>
+
+          {/* Courses */}
+          <div>
+            <p className="text-[#f5c518] font-semibold mb-4">Courses</p>
+            {footerCourses.map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="block text-white mb-3 hover:text-gray-300">{l.label}</a>
+            ))}
           </div>
+
+          {/* Resources */}
+          <div>
+            <p className="text-[#f5c518] font-semibold mb-4">Resource</p>
+            {footerResources.map((l) => (
+              <a key={l.label} href={l.href} target="_blank" rel="noopener noreferrer" className="block text-white mb-3 hover:text-gray-300">{l.label}</a>
+            ))}
+          </div>
+
+          {/* Contact */}
+          <div className="text-sm space-y-4">
+            <div className="flex gap-2">
+              <span className="mt-0.5 flex-shrink-0">📍</span>
+              <p className="text-white leading-6">Coimbatore | Chennai | Kochi | Kozhikode | Perinthalmanna | Bengaluru | Thrissur | Trivandrum | Kottayam | Kannur | Dubai*</p>
+            </div>
+            <div className="flex gap-2">
+              <span className="mt-0.5 flex-shrink-0">📍</span>
+              <p className="text-white leading-6">D, D1, C & C1, 49/137,<br />Ponnurunni, Vyttila, Ernakulam,<br />Kerala 682019</p>
+            </div>
+            <div className="flex gap-2">
+              <span className="mt-0.5 flex-shrink-0">📞</span>
+              <div>
+                <p className="text-white font-semibold">🇮🇳 +91 90612 77777</p>
+                <p className="text-white font-semibold">🇦🇪 +971 568631499</p>
+                <p className="text-gray-300 text-xs mt-1">Mon to Sun | 9am to 7pm</p>
+              </div>
+            </div>
+            <div className="flex gap-2">
+              <span className="mt-0.5 flex-shrink-0">✉️</span>
+              <div>
+                <p className="text-white font-semibold">info@iiclakshya.com</p>
+                <p className="text-gray-300 text-xs">Send us your query anytime!</p>
+              </div>
+            </div>
+            <a href="https://lakshyacommerce.com/privacy-policy-and-terms-of-service" target="_blank" rel="noopener noreferrer" className="text-white hover:text-gray-300">T&amp;C and Privacy Policy</a>
+          </div>
+        </div>
+
+        {/* Bottom social icons row */}
+        <div className="flex items-center gap-5 mb-6 mt-2">
+          {[
+            { href: 'https://x.com/iiclakshya', label: 'X', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.253 5.622 5.911-5.622zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg> },
+            { href: 'https://www.youtube.com/@iic_lakshya', label: 'YouTube', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg> },
+            { href: 'https://www.facebook.com/lakshyacac', label: 'Facebook', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg> },
+            { href: 'https://www.instagram.com/iiclakshya/', label: 'Instagram', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> },
+            { href: 'https://www.reddit.com/r/IICLakshya/', label: 'Reddit', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M12 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0zm5.01 4.744c.688 0 1.25.561 1.25 1.249a1.25 1.25 0 0 1-2.498.056l-2.597-.547-.8 3.747c1.824.07 3.48.632 4.674 1.488.308-.309.73-.491 1.207-.491.968 0 1.754.786 1.754 1.754 0 .716-.435 1.333-1.01 1.614a3.111 3.111 0 0 1 .042.52c0 2.694-3.13 4.87-7.004 4.87-3.874 0-7.004-2.176-7.004-4.87 0-.183.015-.366.043-.534A1.748 1.748 0 0 1 4.028 12c0-.968.786-1.754 1.754-1.754.463 0 .898.196 1.207.49 1.207-.883 2.878-1.43 4.744-1.487l.885-4.182a.342.342 0 0 1 .14-.197.35.35 0 0 1 .238-.042l2.906.617a1.214 1.214 0 0 1 1.108-.701zM9.25 12C8.561 12 8 12.562 8 13.25c0 .687.561 1.248 1.25 1.248.687 0 1.248-.561 1.248-1.249 0-.688-.561-1.249-1.249-1.249zm5.5 0c-.687 0-1.248.561-1.248 1.25 0 .687.561 1.248 1.249 1.248.688 0 1.249-.561 1.249-1.249 0-.687-.562-1.249-1.25-1.249zm-5.466 3.99a.327.327 0 0 0-.231.094.33.33 0 0 0 0 .463c.842.842 2.484.913 2.961.913.477 0 2.105-.056 2.961-.913a.361.361 0 0 0 .029-.463.33.33 0 0 0-.464 0c-.547.533-1.684.73-2.512.73-.828 0-1.979-.196-2.512-.73a.326.326 0 0 0-.232-.095z"/></svg> },
+            { href: 'https://www.quora.com/profile/IIC-LAKSHYA', label: 'Quora', svg: <svg viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5"><path d="M11.94.01C5.326.01 0 5.33 0 11.944c0 6.616 5.326 11.937 11.94 11.937 1.786 0 3.476-.4 4.99-1.113.505.687 1.136 1.224 2.022 1.224h2.897c.195 0 .29-.14.193-.312l-1.38-2.46c1.458-1.8 2.338-4.1 2.338-6.573C23.88 5.33 18.55.01 11.94.01zm4.194 17.715c-.585-.96-1.31-1.73-2.5-1.73h-2.898c-.193 0-.29.14-.193.312l1.304 2.324a8.293 8.293 0 0 1-1.947.232c-4.58 0-8.3-3.72-8.3-8.3 0-4.58 3.72-8.3 8.3-8.3 4.58 0 8.3 3.72 8.3 8.3 0 2.545-.974 4.628-2.066 7.162z"/></svg> },
+          ].map((s) => (
+            <a key={s.label} href={s.href} target="_blank" rel="noopener noreferrer" aria-label={s.label} className="text-white hover:text-gray-300 transition-colors">
+              {s.svg}
+            </a>
+          ))}
+        </div>
+
+        {/* Copyright */}
+        <div className="border-t border-[#1a6aaa] pt-4 text-xs text-gray-300 text-center">
+          <p>Copyright © 2026 All rights reserved with Learnfluence Education Limited (Formerly known as Learnfluence Education Private Limited).<br />*Managed and operated by a separate legal entity.</p>
         </div>
       </footer>
     </div>

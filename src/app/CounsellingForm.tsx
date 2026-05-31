@@ -1,16 +1,18 @@
 'use client'
 
-import { useActionState } from 'react'
+import { useActionState, useState } from 'react'
 import { submitCounsellingForm } from './actions'
 
 const inputClass =
-  'w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-base text-gray-400 placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm'
+  'w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-base text-black placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm'
 
-const selectClass =
-  'w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-base text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm [&>option:not([disabled])]:text-gray-800'
+const selectBase =
+  'w-full bg-white border border-gray-200 rounded-2xl px-5 py-4 text-base focus:outline-none focus:ring-2 focus:ring-blue-300 shadow-sm [&>option:not([disabled])]:text-black'
 
 export default function CounsellingForm() {
   const [state, action, pending] = useActionState(submitCounsellingForm, null)
+  const [locationVal, setLocationVal] = useState('')
+  const [qualVal, setQualVal] = useState('')
 
   if (state?.success) {
     return (
@@ -44,10 +46,15 @@ export default function CounsellingForm() {
         type="email"
         name="email"
         placeholder="Email:"
-        required
         className={inputClass}
       />
-      <select name="location" required className={selectClass} defaultValue="">
+      <select
+        name="location"
+        required
+        value={locationVal}
+        onChange={(e) => setLocationVal(e.target.value)}
+        className={`${selectBase} ${locationVal ? 'text-black' : 'text-gray-400'}`}
+      >
         <option value="" disabled>Location:</option>
         <option value="Kannur">Kannur</option>
         <option value="Kozhikode(calicut)">Kozhikode(calicut)</option>
@@ -57,11 +64,17 @@ export default function CounsellingForm() {
         <option value="Kottayam">Kottayam</option>
         <option value="Trivandrum">Trivandrum</option>
       </select>
-      <select name="qualification" required className={selectClass} defaultValue="">
+      <select
+        name="qualification"
+        required
+        value={qualVal}
+        onChange={(e) => setQualVal(e.target.value)}
+        className={`${selectBase} ${qualVal ? 'text-black' : 'text-gray-400'}`}
+      >
         <option value="" disabled>Qualification</option>
         <option value="Class 11 Student">Class 11 Student</option>
         <option value="Class 12 Student">Class 12 Student</option>
-        <option value="Graduate & Above - No Experience">Graduate & Above - No Experience</option>
+        <option value="Graduate & Above - No Experience">Graduate &amp; Above - No Experience</option>
         <option value="0-1 Yr">0-1 Yr</option>
         <option value="2-5 Yrs">2-5 Yrs</option>
         <option value="5+ Yrs">5+ Yrs</option>
