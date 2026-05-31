@@ -15,6 +15,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Free 1:1 Career Counselling Session | IIC Lakshya",
   description: "Book your free 1:1 career counselling session with India's No.1 Commerce Institute. Get expert guidance on career paths in commerce.",
+  icons: {
+    icon: 'https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/lakshya-icon.png',
+  },
 };
 
 export default function RootLayout({
