@@ -18,3 +18,65 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Desktop hero: height follows content so zoom cannot leave empty green under the image */
+.hero-banner {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-banner__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 64rem; /* max-w-5xl */
+  margin-inline: auto;
+  padding: 2rem 1.5rem 0;
+  gap: 1rem;
+}
+
+.hero-banner__media {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: flex-end;
+  line-height: 0; /* remove descender gap under <img> */
+}
+
+.hero-banner__media img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 220px;
+  margin-inline: auto;
+  vertical-align: bottom;
+}
+
+@media (min-width: 1024px) {
+  .hero-banner__inner {
+    flex-direction: row;
+    align-items: flex-end; /* image + text row sit on the green bottom edge */
+    padding: 2.5rem 2.5rem 0;
+    gap: 1.5rem;
+    min-height: 420px; /* matches image max height at 100% — not vh */
+  }
+
+  .hero-banner__copy {
+    flex: 1 1 0;
+    min-width: 0;
+    align-self: center; /* text mid-left like the normal design */
+    padding-bottom: 2.5rem;
+  }
+
+  .hero-banner__media {
+    flex: 1 1 0;
+    min-width: 0;
+    align-self: flex-end;
+  }
+
+  .hero-banner__media img {
+    max-width: none;
+    max-height: 420px;
+  }
+}

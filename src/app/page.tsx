@@ -96,28 +96,28 @@ export default function Home() {
     <div className="font-sans text-[#1a3c6e] bg-white">
 
       {/* ── LOGO + HERO ── */}
-      <div className="flex flex-col lg:h-[85vh]">
+      <div className="flex flex-col">
         {/* Logo bar */}
-        <div className="flex justify-center py-2 bg-white flex-shrink-0">
+        <div className="flex justify-center py-2 bg-white shrink-0">
           <Image
             src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/Lg.webp"
             alt="IIC Lakshya Logo"
             width={220}
             height={55}
+            className="w-[220px] h-auto max-w-full"
             priority
           />
         </div>
 
-        {/* Hero */}
+        {/* Hero — no vh height (avoids empty green on zoom); image pinned to bottom edge */}
         <section
-          className="relative overflow-hidden flex flex-1 items-center justify-center"
+          className="hero-banner"
           style={{
             background: 'linear-gradient(135deg, #0d5c6e 0%, #0d7a6e 25%, #2a9a6e 55%, #7ac56e 80%, #a8d870 100%)',
           }}
         >
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-5xl px-6 lg:px-10 gap-4 lg:gap-6 pt-8 pb-0 lg:py-0 lg:h-full">
-            {/* Text */}
-            <div className="flex-1 flex flex-col justify-center text-center lg:text-left">
+          <div className="hero-banner__inner">
+            <div className="hero-banner__copy flex flex-col justify-center text-center lg:text-left w-full">
               <p className="text-white text-base lg:text-2xl font-normal mb-1">Book your</p>
               <h1 className="text-white font-normal leading-tight text-2xl lg:text-5xl">
                 <span className="text-[#f5c518] font-extrabold">Free 1:1</span> Career
@@ -132,15 +132,13 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Hero image */}
-            <div className="flex-1 flex items-end justify-center h-full self-end">
+            <div className="hero-banner__media">
               <Image
                 src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/1754805830979_cbanner_oline-header-img.webp"
                 alt="Career Counselling Experts"
                 width={700}
                 height={440}
-                className="object-contain object-bottom w-full max-w-[220px] lg:max-w-none mb-0 block"
-                style={{ width: 'auto', height: '85%', maxHeight: '420px', verticalAlign: 'bottom' }}
+                sizes="(max-width: 1023px) 220px, 668px"
                 priority
               />
             </div>
