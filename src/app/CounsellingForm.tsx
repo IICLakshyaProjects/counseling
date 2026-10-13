@@ -46,6 +46,7 @@ export default function CounsellingForm() {
   const [qualVal, setQualVal] = useState('')
   const [utmValues, setUtmValues] = useState<Record<string, string>>({})
   const [pageUrl, setPageUrl] = useState('')
+  const [oppref, setOppref] = useState('')
   const [mobile, setMobile] = useState('')
   const [mobileError, setMobileError] = useState('')
 
@@ -76,6 +77,9 @@ export default function CounsellingForm() {
 
     setUtmValues(merged)
     setPageUrl(window.location.href)
+
+    const opprefVal = params.get('oppref')
+    if (opprefVal) setOppref(opprefVal)
   }, [])
 
   function handleMobileChange(e: React.ChangeEvent<HTMLInputElement>) {
@@ -117,6 +121,7 @@ export default function CounsellingForm() {
           <input key={key} type="hidden" name={key} value={val} />
         ))}
         {pageUrl && <input type="hidden" name="conversion_ref_url" value={pageUrl} />}
+        {oppref && <input type="hidden" name="oppref" value={oppref} />}
 
         <input
           type="text"

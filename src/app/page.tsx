@@ -96,28 +96,29 @@ export default function Home() {
     <div className="font-sans text-[#1a3c6e] bg-white">
 
       {/* ── LOGO + HERO ── */}
-      <div className="flex flex-col lg:h-[85vh]">
+      <div className="flex flex-col lg:min-h-[85vh]">
         {/* Logo bar */}
-        <div className="flex justify-center py-2 bg-white flex-shrink-0">
+        <div className="flex justify-center py-2 bg-white shrink-0">
           <Image
             src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/Lg.webp"
             alt="IIC Lakshya Logo"
             width={220}
             height={55}
+            className="w-[220px] h-auto max-w-full"
             priority
           />
         </div>
 
         {/* Hero */}
         <section
-          className="relative overflow-hidden flex flex-1 items-center justify-center"
+          className="relative flex flex-1 items-center lg:items-stretch justify-center"
           style={{
             background: 'linear-gradient(135deg, #0d5c6e 0%, #0d7a6e 25%, #2a9a6e 55%, #7ac56e 80%, #a8d870 100%)',
           }}
         >
-          <div className="flex flex-col lg:flex-row items-center justify-center w-full max-w-5xl px-6 lg:px-10 gap-4 lg:gap-6 pt-8 pb-0 lg:py-0 lg:h-full">
+          <div className="flex flex-col lg:flex-row items-center lg:items-end justify-center w-full max-w-5xl px-6 lg:px-10 gap-4 lg:gap-6 pt-8 pb-0 lg:pt-8 lg:pb-0">
             {/* Text */}
-            <div className="flex-1 flex flex-col justify-center text-center lg:text-left">
+            <div className="flex-1 flex flex-col justify-center text-center lg:text-left w-full min-w-0 lg:self-center">
               <p className="text-white text-base lg:text-2xl font-normal mb-1">Book your</p>
               <h1 className="text-white font-normal leading-tight text-2xl lg:text-5xl">
                 <span className="text-[#f5c518] font-extrabold">Free 1:1</span> Career
@@ -132,15 +133,15 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Hero image */}
-            <div className="flex-1 flex items-end justify-center h-full self-end">
+            {/* Hero image — px max sizes (not %/vh) so zoom stays stable; 100% size unchanged */}
+            <div className="w-full flex-1 flex justify-center items-end min-w-0">
               <Image
                 src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/1754805830979_cbanner_oline-header-img.webp"
                 alt="Career Counselling Experts"
                 width={700}
                 height={440}
-                className="object-contain object-bottom w-full max-w-[220px] lg:max-w-none mb-0 block"
-                style={{ width: 'auto', height: '85%', maxHeight: '420px', verticalAlign: 'bottom' }}
+                className="block mx-auto object-contain object-bottom w-auto h-auto max-w-[220px] lg:max-w-none lg:max-h-[420px]"
+                sizes="(max-width: 1023px) 220px, 668px"
                 priority
               />
             </div>

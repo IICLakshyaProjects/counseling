@@ -50,7 +50,8 @@ async function pushToLeadSquared(
   location: string,
   qualification: string,
   utms: Record<string, string>,
-  conversionRefUrl: string
+  conversionRefUrl: string,
+  oppref: string
 ) {
   const host = process.env.LSQ_HOST
   const accessKey = process.env.LSQ_ACCESS_KEY
@@ -70,6 +71,10 @@ async function pushToLeadSquared(
     { Attribute: 'mx_Highest_Education_Qualification', Value: qualification },
     { Attribute: 'mx_Conversion_Ref_URL', Value: conversionRefUrl },
   ]
+
+  if (oppref) {
+    payload.push({ Attribute: 'mx_oppref', Value: oppref })
+  }
 
   // Add UTM fields
   Object.entries(utms).forEach(([key, val]) => {
@@ -117,6 +122,7 @@ export async function submitCounsellingForm(
   }
 
   const conversionRefUrl = (formData.get('conversion_ref_url') as string)?.trim() ?? ''
+  const oppref = (formData.get('oppref') as string)?.trim() ?? ''
 
   // Collect UTM values from hidden fields
   const utms: Record<string, string> = {}
@@ -137,7 +143,7 @@ export async function submitCounsellingForm(
     )
 
     try {
-      await pushToLeadSquared(full_name, mobile, email, location, qualification, utms, conversionRefUrl)
+      await pushToLeadSquared(full_name, mobile, email, location, qualification, utms, conversionRefUrl, oppref)
     } catch (e) {
       console.error('LSQ push failed:', e)
     }
