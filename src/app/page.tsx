@@ -96,7 +96,7 @@ export default function Home() {
     <div className="font-sans text-[#1a3c6e] bg-white">
 
       {/* ── LOGO + HERO ── */}
-      <div className="hero-shell flex flex-col">
+      <div className="flex flex-col">
         {/* Logo bar */}
         <div className="flex justify-center py-2 bg-white shrink-0">
           <Image
@@ -109,16 +109,15 @@ export default function Home() {
           />
         </div>
 
-        {/* Hero — height capped via .hero-shell so zoom-out cannot inflate empty space */}
+        {/* Hero — no vh height (avoids empty green on zoom); image pinned to bottom edge */}
         <section
-          className="relative flex flex-1 justify-center"
+          className="hero-banner"
           style={{
             background: 'linear-gradient(135deg, #0d5c6e 0%, #0d7a6e 25%, #2a9a6e 55%, #7ac56e 80%, #a8d870 100%)',
           }}
         >
-          <div className="flex flex-col lg:flex-row items-center lg:items-end justify-center w-full max-w-5xl mx-auto px-6 lg:px-10 gap-4 lg:gap-6 pt-8 pb-0 lg:pt-8 lg:pb-0 lg:h-full">
-            {/* Text */}
-            <div className="flex-1 flex flex-col justify-center text-center lg:text-left w-full min-w-0 lg:self-center">
+          <div className="hero-banner__inner">
+            <div className="hero-banner__copy flex flex-col justify-center text-center lg:text-left w-full">
               <p className="text-white text-base lg:text-2xl font-normal mb-1">Book your</p>
               <h1 className="text-white font-normal leading-tight text-2xl lg:text-5xl">
                 <span className="text-[#f5c518] font-extrabold">Free 1:1</span> Career
@@ -133,14 +132,12 @@ export default function Home() {
               </p>
             </div>
 
-            {/* Hero image — px-based size (scales with browser zoom); centered on mobile */}
-            <div className="w-full flex-1 flex justify-center items-end min-w-0">
+            <div className="hero-banner__media">
               <Image
                 src="https://lakshyamailerimages.s3.ap-south-1.amazonaws.com/1754805830979_cbanner_oline-header-img.webp"
                 alt="Career Counselling Experts"
                 width={700}
                 height={440}
-                className="block mx-auto object-contain object-bottom w-auto h-auto max-w-[220px] lg:max-w-none lg:max-h-[420px]"
                 sizes="(max-width: 1023px) 220px, 668px"
                 priority
               />
