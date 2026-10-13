@@ -149,11 +149,11 @@ export default function Home() {
       {/* ── ACHIEVEMENTS ── */}
       <section className="py-10 lg:py-14 px-4 lg:px-6">
         <h2 className="text-center text-2xl lg:text-3xl font-normal text-[#1a3c6e] mb-6 lg:mb-10">Our Achievements</h2>
-        <div className="grid grid-cols-2 gap-8 lg:gap-16 max-w-xs lg:max-w-2xl mx-auto text-center">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 max-w-xs lg:max-w-5xl mx-auto text-center">
           {achievements.map((a) => (
             <div key={a.value}>
-              <p className="text-4xl lg:text-7xl font-extrabold text-[#1a3c6e]">{a.value}</p>
-              <p className="text-[#3a8fe8] text-sm lg:text-lg mt-2 lg:mt-3 leading-5 lg:leading-6 whitespace-pre-line">{a.label}</p>
+              <p className="text-4xl lg:text-5xl xl:text-6xl font-extrabold text-[#1a3c6e]">{a.value}</p>
+              <p className="text-[#3a8fe8] text-sm lg:text-base xl:text-lg mt-2 lg:mt-3 leading-5 lg:leading-6 whitespace-pre-line">{a.label}</p>
             </div>
           ))}
         </div>
