@@ -18,3 +18,19 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/*
+  Cap vh-based hero height. Browser zoom-out inflates the CSS viewport, so
+  plain 85vh grows empty space and pulls text/image apart. min(85vh, 780px)
+  keeps the ~100% desktop look on normal screens while staying proportional
+  when zooming (px scales with zoom; uncapped vh does not).
+*/
+.hero-shell {
+  min-height: 0;
+}
+
+@media (min-width: 1024px) {
+  .hero-shell {
+    min-height: min(85vh, 780px);
+  }
+}
